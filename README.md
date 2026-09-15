@@ -4,7 +4,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/netcccyun/dnsmgr?style=flat)](https://github.com/netcccyun/dnsmgr/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/netcccyun/dnsmgr?style=flat)](https://github.com/netcccyun/dnsmgr/forks)
-[![Docker Pulls](https://img.shields.io/docker/pulls/netcccyun/dnsmgr?style=flat)](https://hub.docker.com/r/netcccyun/dnsmgr)
+[![Docker Pulls](https://img.shields.io/docker/pulls/julyyuu/dnsmgr?style=flat)](https://hub.docker.com/r/julyyuu/dnsmgr)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/netcccyun/dnsmgr)](https://github.com/netcccyun/dnsmgr/releases)
 [![GitHub last commit](https://img.shields.io/github/last-commit/netcccyun/dnsmgr)](https://github.com/netcccyun/dnsmgr/commits/main)
 
@@ -81,7 +81,7 @@ location / {
 首先需要安装Docker，然后执行以下命令拉取镜像并启动（启动后监听8081端口）：
 
 ```
-docker run --name dnsmgr -dit -p 8081:80 -v /var/dnsmgr:/app/www netcccyun/dnsmgr
+docker run --name dnsmgr -dit -p 8081:80 -v /var/dnsmgr:/app/www julyyuu/dnsmgr
 ```
 
 访问并安装好后如果容灾切换未自动启动，重启容器即可：
@@ -90,10 +90,10 @@ docker run --name dnsmgr -dit -p 8081:80 -v /var/dnsmgr:/app/www netcccyun/dnsmg
 docker restart dnsmgr
 ```
 
-从国内镜像地址拉取：
+从 Docker Hub 拉取：
 
 ```
-docker pull swr.cn-east-3.myhuaweicloud.com/netcccyun/dnsmgr:latest
+docker pull julyyuu/dnsmgr:latest
 ```
 
 ### docker-compose 部署
@@ -108,7 +108,7 @@ services:
       - 8081:80
     volumes:
       - ./web:/app/www
-    image: netcccyun/dnsmgr
+    image: julyyuu/dnsmgr
     depends_on:
       - dnsmgr-mysql
     networks:
